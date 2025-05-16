@@ -1,0 +1,233 @@
+<h2 class="text-2xl font-semibold text-gray-800 text-center mt-10">Profile</h2>
+
+<mat-tab-group>
+  <mat-tab label="Add New Data">
+    <div class="p-6 bg-white rounded shadow-md">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">
+        Profile
+      </h2>
+
+      <div class="max-w-3xl mx-auto">
+        <form
+          [formGroup]="profileForm"
+          (ngSubmit)="onSubmit()"
+          class="space-y-4"
+        >
+          <!-- Name -->
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              formControlName="name"
+              placeholder="Enter your name"
+            />
+          </mat-form-field>
+
+          <!-- Address -->
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Address</mat-label>
+            <input
+              matInput
+              formControlName="address"
+              placeholder="Enter your address"
+            />
+          </mat-form-field>
+
+          <!-- Phone -->
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Phone Number</mat-label>
+            <input
+              matInput
+              formControlName="phone"
+              placeholder="Enter phone number"
+              type="number"
+            />
+            <mat-error *ngIf="profileForm.get('phone')?.hasError('required')">
+              Phone number is required
+            </mat-error>
+            <mat-error *ngIf="profileForm.get('phone')?.hasError('pattern')">
+              Enter a valid mobile number
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Email -->
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Enter email" />
+            <mat-error *ngIf="profileForm.get('email')?.hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="profileForm.get('email')?.hasError('email')">
+              Enter a valid email address
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Social Media -->
+          <div
+            formGroupName="social"
+            class="grid grid-cols-1 md:grid-cols-2 gap-4"
+          >
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Facebook</mat-label>
+              <input
+                matInput
+                formControlName="facebook"
+                placeholder="Facebook profile link"
+              />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Instagram</mat-label>
+              <input
+                matInput
+                formControlName="instagram"
+                placeholder="Instagram profile link"
+              />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Fiverr</mat-label>
+              <input
+                matInput
+                formControlName="fiverr"
+                placeholder="Fiverr profile link"
+              />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>GitHub</mat-label>
+              <input
+                matInput
+                formControlName="github"
+                placeholder="GitHub profile link"
+              />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>LinkedIn</mat-label>
+              <input
+                matInput
+                formControlName="linkedin"
+                placeholder="LinkedIn profile link"
+              />
+            </mat-form-field>
+          </div>
+          <app-toast
+            [message]="toastMessage"
+            [messageType]="toastType"
+            *ngIf="isToastVisible"
+          >
+          </app-toast>
+          <div class="flex justify-center mt-4">
+            <button
+              mat-raised-button
+              type="submit"
+              [disabled]="isSubmitting"
+              [ngClass]="{
+                'bg-blue-200 text-gray-800': isSubmitting,
+                'bg-blue-700 hover:bg-blue-500 text-white': !isSubmitting
+              }"
+              class="font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out flex items-center gap-2"
+            >
+              <mat-spinner
+                *ngIf="isSubmitting"
+                diameter="20"
+                strokeWidth="3"
+                color="accent"
+              ></mat-spinner>
+              <span *ngIf="!isSubmitting">Submit</span>
+              <mat-icon *ngIf="!isSubmitting" class="text-white">send</mat-icon>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="See Data"> 
+    <app-toast
+    class="mt-6"
+    [message]="toastMessage"
+    [messageType]="toastType"
+    *ngIf="isToastVisible"
+  >
+  </app-toast>
+    <div 
+    *ngIf="profilesDocuments.length > 0" 
+    class="relative bg-white border border-gray-200 shadow-xl rounded-2xl w-full max-w-screen-md mx-auto p-6 space-y-6 mt-6"
+  >
+
+  
+    <!-- Basic Info -->
+    <div class="space-y-2">
+      <h2 class="text-2xl font-bold text-gray-800">Profile Information</h2>
+      <p class="text-gray-600"><strong>Name:</strong> {{ profilesDocuments[0]['name'] }}</p>
+      <p class="text-gray-600"><strong>Address:</strong> {{ profilesDocuments[0]['address'] }}</p>
+      <p class="text-gray-600"><strong>Phone:</strong> {{ profilesDocuments[0]['phone'] }}</p>
+      <p class="text-gray-600"><strong>Email:</strong> {{ profilesDocuments[0]['email'] }}</p>
+    </div>
+  
+    <!-- Social Links -->
+    <div class="space-y-2">
+      <h3 class="text-xl font-semibold text-gray-700">Social Profiles</h3>
+      <ul class="flex flex-wrap gap-4">
+        <li *ngIf="profilesDocuments[0]['social']?.facebook">
+          <a 
+            [href]="profilesDocuments[0]['social'].facebook" 
+            target="_blank" 
+            class="text-blue-600 hover:underline"
+          >
+            Facebook
+          </a>
+        </li>
+        <li *ngIf="profilesDocuments[0]['social']?.instagram">
+          <a 
+            [href]="profilesDocuments[0]['social'].instagram" 
+            target="_blank" 
+            class="text-pink-500 hover:underline"
+          >
+            Instagram
+          </a>
+        </li>
+        <li *ngIf="profilesDocuments[0]['social']?.fiverr">
+          <a 
+            [href]="profilesDocuments[0]['social'].fiverr" 
+            target="_blank" 
+            class="text-green-600 hover:underline"
+          >
+            Fiverr
+          </a>
+        </li>
+        <li *ngIf="profilesDocuments[0]['social']?.github">
+          <a 
+            [href]="profilesDocuments[0]['social'].github" 
+            target="_blank" 
+            class="text-gray-800 hover:underline"
+          >
+            GitHub
+          </a>
+        </li>
+        <li *ngIf="profilesDocuments[0]['social']?.linkedin">
+          <a 
+            [href]="profilesDocuments[0]['social'].linkedin" 
+            target="_blank" 
+            class="text-blue-700 hover:underline"
+          >
+            LinkedIn
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="w-full flex justify-end px-6 py-4 bg-gray-50">
+      <button
+      (click)="deleteDocument(profilesDocuments[0]['id'])"
+        class="flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition"
+      >
+        <mat-icon class="text-white text-base">delete</mat-icon>
+        <span>Delete</span>
+      </button>
+    </div>
+  </div>
+  
+
+     </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,71 @@
+<nav class="bg-white shadow-md w-full z-50 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[96px] flex items-center justify-between">
+    
+    <!-- Logo Section -->
+    <div class="flex items-center space-x-3">
+      <div class="w-[60px] h-[60px] flex items-center justify-center rounded-full">
+        <img src="logo.png" alt="Brand Logo" class="w-[60px] h-[60px] rounded-full" />
+      </div>
+      <span class="font-bold text-2xl text-gray-800">Usman</span>
+    </div>
+
+    <!-- Desktop Nav Links (Only visible from large screens and up) -->
+    <div class="hidden lg:flex items-center space-x-6">
+      <a href="#" class="text-gray-700 hover:text-[#A53DFF] transition">Home</a>
+      <a (click)="scrollToSection('intro')" class="cursor-pointer text-gray-700 hover:text-[#A53DFF] transition">About</a>
+      <a (click)="scrollToSection('process')" class="cursor-pointer text-gray-700 hover:text-[#A53DFF] transition">Process</a>
+      <a (click)="scrollToSection('portfolio')" class="cursor-pointer text-gray-700 hover:text-[#A53DFF] transition">Portfolio</a>
+      <a (click)="scrollToSection('service')" class="cursor-pointer text-gray-700 hover:text-[#A53DFF] transition">Services</a>
+      <a (click)="scrollToSection('skills')" class="cursor-pointer text-gray-700 hover:text-[#A53DFF] transition">Skills</a>
+      <a (click)="scrollToSection('experience')" class="cursor-pointer text-gray-700 hover:text-[#A53DFF] transition">Experience</a>
+      <a (click)="scrollToSection('testimonial')" class="cursor-pointer text-gray-700 hover:text-[#A53DFF] transition">Testimonial</a>
+      <a
+        (click)="scrollToSection('contact')"
+        class="ml-4 px-4 py-2 bg-[#A53DFF] border border-[#C17EFF] text-white hover:bg-[#C17EFF] rounded-md transition-all duration-300 cursor-pointer"
+      >
+        Contact
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button (visible from md up to lg, hidden on lg and up) -->
+    <div class="block md:block lg:hidden">
+      <button (click)="toggleMenu()" class="text-gray-700 focus:outline-none">
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          @if (!isMenuOpen) {
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          } @if (isMenuOpen) {
+            <path d="M6 18L18 6M6 6l12 12" />
+          }
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation (visible from md up to lg, hidden on lg and up) -->
+  @if (isMenuOpen) {
+    <div class="block md:block lg:hidden px-4 pb-4 space-y-2">
+      <a class="block text-gray-700 hover:text-[#A53DFF] cursor-pointer" (click)="scrollToSection('home')">Home</a>
+      <a class="block text-gray-700 hover:text-[#A53DFF] cursor-pointer" (click)="scrollToSection('intro')">About</a>
+      <a class="block text-gray-700 hover:text-[#A53DFF] cursor-pointer" (click)="scrollToSection('process')">Process</a>
+      <a class="block text-gray-700 hover:text-[#A53DFF] cursor-pointer" (click)="scrollToSection('portfolio')">Portfolio</a>
+      <a class="block text-gray-700 hover:text-[#A53DFF] cursor-pointer" (click)="scrollToSection('service')">Services</a>
+      <a class="block text-gray-700 hover:text-[#A53DFF] cursor-pointer" (click)="scrollToSection('skills')">Skills</a>
+      <a class="block text-gray-700 hover:text-[#A53DFF] cursor-pointer" (click)="scrollToSection('experience')">Experience</a>
+      <a class="block text-gray-700 hover:text-[#A53DFF] cursor-pointer" (click)="scrollToSection('testimonial')">Testimonial</a>
+      <a
+        (click)="scrollToSection('contact')"
+        class="inline-block mt-2 px-4 py-2 bg-[#A53DFF] border border-[#C17EFF] text-white hover:bg-[#C17EFF] rounded-md transition-all duration-300 cursor-pointer"
+      >
+        Contact
+      </a>
+    </div>
+  }
+</nav>

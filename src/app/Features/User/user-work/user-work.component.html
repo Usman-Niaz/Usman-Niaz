@@ -1,0 +1,62 @@
+<div class="bg-[#F0F1F3]  py-12 px-6 sm:px-6 md:px-12 lg:px-20 overflow-hidden" id="process">
+  <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10">
+    <!-- Left Content -->
+    <div class="lg:w-1/2 flex flex-col justify-center" data-aos="fade-up-right">
+      <h2 class="text-3xl sm:text-4xl font-semibold mb-4">Work Process</h2>
+      <p
+        *ngIf="workProcess.length > 0"
+        class="text-gray-600 text-base sm:text-lg text-justify"
+        data-aos="fade-up-left"
+      >
+        {{ workProcess[0]["workDescription"] }}
+      </p>
+    </div>
+
+    <!-- Right Content -->
+    <div class="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <!-- Step 1 -->
+      <div class="bg-white p-6 rounded-lg shadow-sm" data-aos="fade-up-right">
+        <div class="w-16 h-16 bg-[#A53DFF] rounded flex items-center justify-center mb-4">
+          <mat-icon class="!text-white text-2xl">analytics</mat-icon>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-900 mb-2">1. Research Phase</h3>
+        <p *ngIf="workProcess.length > 0" class="text-gray-600 text-justify">
+          {{ workProcess[0]["rearchDescription"] }}
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="bg-white p-6 rounded-lg shadow-sm" data-aos="fade-up-left">
+        <div class="w-16 h-16 bg-[#efe6f7] rounded flex items-center justify-center mb-4">
+          <mat-icon class="!text-[#A53DFF] text-2xl">show_chart</mat-icon>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-900 mb-2">2. Analysis & Planning</h3>
+        <p *ngIf="workProcess.length > 0" class="text-gray-600 text-justify">
+          {{ workProcess[0]["analyzeDescription"] }}
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="bg-white p-6 rounded-lg shadow-sm" data-aos="fade-up-right">
+        <div class="w-16 h-16 bg-[#efe6f7] rounded flex items-center justify-center mb-4">
+          <mat-icon class="!text-[#A53DFF] text-2xl">code</mat-icon>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-900 mb-2">3. Development Phase</h3>
+        <p *ngIf="workProcess.length > 0" class="text-gray-600 text-justify">
+          {{ workProcess[0]["designDescription"] }}
+        </p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="bg-white p-6 rounded-lg shadow-sm" data-aos="fade-up-left">
+        <div class="w-16 h-16 bg-[#efe6f7] rounded flex items-center justify-center mb-4">
+          <mat-icon class="!text-[#A53DFF] text-2xl">rocket_launch</mat-icon>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-900 mb-2">4. Testing & Launch</h3>
+        <p *ngIf="workProcess.length > 0" class="text-gray-600 text-justify">
+          {{ workProcess[0]["launchDescription"] }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

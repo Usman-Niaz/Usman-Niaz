@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "usmanniaz-a3ae0",
+    "staging": "food-recipe-2b12e",
+    "production": "usmanniaz-a3ae0"
+  },
+  "targets": {},
+  "etags": {}
+}

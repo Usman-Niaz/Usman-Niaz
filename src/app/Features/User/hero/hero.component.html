@@ -1,0 +1,88 @@
+<div
+  class=" bg-gradient-to-br from-[#FFF1D8] via-[#F5D8FD] to-[#E5FBF6] py-12 px-6 sm:px-6 md:px-12 lg:px-20 overflow-hidden"
+>
+  <div class="w-full max-w-[1400px] mx-auto">
+    <!-- Flex Container -->
+    <div class="flex flex-col md:flex-row items-center gap-10">
+      <!-- Left: Text -->
+      <div class="w-full md:w-1/2 space-y-6">
+        <ng-container *ngFor="let doc1 of profile">
+          <h1
+            class="font-semibold text-3xl md:text-4xl leading-tight"
+            data-aos="fade-up-right"
+          >
+            Hello, I'm <br />
+            {{ doc1["name"] }}
+          </h1>
+        </ng-container>
+
+        <ng-container *ngFor="let doc of heroDocuments">
+          <p
+            class="text-gray-700 text-base sm:text-lg text-justify"
+            data-aos="fade-up-left"
+          >
+            {{ doc["introduction"] }}
+          </p>
+        </ng-container>
+
+        <div data-aos="fade-up-right">
+          <button
+          (click)="scrollToSection('contact')" 
+            class="px-6 py-2 bg-[rgb(155,92,246)] text-white rounded shadow hover:bg-[#7c42d0] transition cursor-pointer"
+          >
+            Say Hello!
+          </button>
+        </div>
+
+        <ng-container *ngFor="let doc of heroDocuments">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+            <div
+              class="bg-white/60 backdrop-blur-md p-5 text-center rounded-lg shadow"
+              data-aos="fade-up-left"
+            >
+              <h2 class="text-2xl font-bold text-gray-900">
+                {{ doc["Experience"] }} Y.
+              </h2>
+              <p class="text-sm text-gray-600">Experience</p>
+            </div>
+            <div
+              class="bg-white/60 backdrop-blur-md p-5 text-center rounded-lg shadow"
+              data-aos="fade-up-right"
+            >
+              <h2 class="text-2xl font-bold text-gray-900">
+                {{ doc["Project"] }}+
+              </h2>
+              <p class="text-sm text-gray-600">Projects Completed</p>
+            </div>
+            <div
+              class="bg-white/60 backdrop-blur-md p-5 text-center rounded-lg shadow"
+              data-aos="fade-up-left"
+            >
+              <h2 class="text-2xl font-bold text-gray-900">
+                {{ doc["Client"] }}
+              </h2>
+              <p class="text-sm text-gray-600">Happy Clients</p>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="w-full md:w-1/2 flex justify-center">
+        <ng-container *ngFor="let doc of heroDocuments">
+          <div
+            class="w-full max-w-sm sm:max-w-sm md:max-w-md bg-white shadow rounded-2xl overflow-hidden"
+            data-aos="fade-up-left"
+          >
+            <img
+              [src]="doc['image']"
+              alt="Preview"
+              class="w-full h-auto object-cover"
+            />
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <app-intro class="relative -mb-[100px] z-10"></app-intro>
+</div>

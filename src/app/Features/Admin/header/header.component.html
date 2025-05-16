@@ -1,0 +1,39 @@
+<header
+  class="w-full h-16 bg-white shadow-md flex items-center justify-between px-6"
+>
+  <!-- Left: Logo or Title -->
+  <div class="text-xl font-semibold text-gray-800">My Dashboard</div>
+
+  <!-- Right: User Image -->
+  <div class="flex items-center space-x-3">
+    <span class="text-sm text-gray-600 font-medium">Usman Niaz</span>
+
+    <!-- User Image with Dropdown -->
+    <button mat-button [matMenuTriggerFor]="menu">
+      <img
+      *ngIf="heroDocuments.length > 0"
+      [src]="heroDocuments[0]['image'] || 'assets/default-avatar.png'"
+      alt="Preview"
+        class="w-10 h-10 rounded-full object-cover border border-gray-300 transition-transform duration-200 hover:scale-105 hover:ring-2 hover:ring-yellow-500"
+      />
+    </button>
+
+    <!-- Dropdown Menu -->
+    <mat-menu #menu="matMenu">
+      <button
+        mat-menu-item
+        [routerLink]="'/profile'"
+        routerLinkActive="bg-gray-100"
+      >
+        <mat-icon class="mr-2">person</mat-icon>
+        Profile
+      </button>
+
+      <button mat-menu-item     (click)="logout()">
+        <!-- Logout Icon -->
+        <mat-icon class="mr-2">logout</mat-icon>
+        Logout
+      </button>
+    </mat-menu>
+  </div>
+</header>

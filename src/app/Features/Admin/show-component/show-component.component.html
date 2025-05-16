@@ -1,0 +1,11 @@
+<app-asidbar [isOpen]="isSidebarOpen" (toggle)="toggleSidebar()" />
+<div
+  [ngClass]="{
+    'ml-64': isSidebarOpen,
+    'ml-20': !isSidebarOpen
+  }"
+  class="transition-all duration-300 p-4"
+>
+  <app-header />
+  <router-outlet />
+</div>

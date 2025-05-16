@@ -1,0 +1,37 @@
+<ngx-spinner
+  bdColor="rgb(240,253,244)"
+  size="medium"
+  color="#000000"
+  type="ball-atom"
+  [fullScreen]="true"
+>
+  <p style="color: black; font-weight: bold; font-size: 18px">Loading...</p>
+</ngx-spinner>
+<app-user-header />
+<div
+  class="max-w-4xl mx-auto bg-white p-6 shadow rounded mt-10"
+  *ngIf="project"
+>
+  <h2 class="text-3xl font-bold text-purple-700 text-center" data-aos="fade-up-right">
+    {{ project.projectName }}
+  </h2>
+  <img
+    [src]="project.image"
+    alt="Project Image"
+    class="w-full mt-4 rounded-lg"
+    data-aos="fade-up-left"
+  />
+
+  <p class="mt-2 text-gray-800 text-justify" data-aos="fade-up-right">
+    {{ project.projectFullDescription }}
+  </p>
+  <a
+    [href]="project.projectLink"
+    target="_blank"
+    class="inline-block mt-4 px-6 py-2 bg-purple-700 text-white rounded hover:bg-purple-800"
+    data-aos="fade-up-left"
+  >
+    Live Demo
+  </a>
+</div>
+<app-footer />

@@ -1,0 +1,23 @@
+<div
+  *ngIf="showToast()"
+  class="px-4 py-2 rounded-lg shadow-lg flex items-center space-x-2 w-full"
+  [ngClass]="{
+    'bg-green-500 text-white': messageType === 'success',
+    'bg-red-500 text-white': messageType === 'error'
+  }"
+>
+  <!-- Success or Error Icon -->
+  <fa-icon
+    *ngIf="messageType === 'success'"
+    [icon]="faCheckCircle"
+    class="text-white"
+  ></fa-icon>
+  <fa-icon
+    *ngIf="messageType === 'error'"
+    [icon]="faExclamationCircle"
+    class="text-white"
+  ></fa-icon>
+
+  <!-- Message Content -->
+  <p class="text-white">{{ message }}</p>
+</div>

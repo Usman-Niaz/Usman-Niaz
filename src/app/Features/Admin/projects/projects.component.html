@@ -1,0 +1,172 @@
+<h2 class="text-2xl font-semibold text-gray-800 text-center mt-10">Projects</h2>
+<mat-tab-group>
+  <mat-tab label="Add New Data">
+    <div class="p-6 mt-8 bg-white rounded shadow-md">
+      <div class="max-w-3xl mx-auto">
+        <form
+          [formGroup]="profileForm"
+          (ngSubmit)="onSubmit()"
+          class="space-y-4"
+        >
+        <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Project Name</mat-label>
+            <input
+              matInput
+              formControlName="projectName"
+              placeholder="Enter your Project Name"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Project Live Demo Link</mat-label>
+            <input
+              matInput
+              formControlName="projectLink"
+              placeholder="Enter your Project Live Demo Link"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Project Short Description</mat-label>
+            <textarea
+              matInput
+              formControlName="projectShortDescription"
+              rows="5"
+            ></textarea>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Project Full Description</mat-label>
+            <textarea
+              matInput
+              formControlName="projectFullDescription"
+              rows="5"
+            ></textarea>
+          </mat-form-field>
+          <!-- Upload Photo -->
+          <div class="flex flex-col space-y-2">
+            <label class="font-medium text-gray-700">Upload Photo</label>
+            <input
+              type="file"
+              (change)="onFileSelected($event)"
+              accept="image/*"
+              class="border rounded p-2"
+              [class.border-red-500]="
+                profileForm.get('image')?.invalid &&
+                profileForm.get('image')?.touched
+              "
+            />
+
+            <!-- Optional: Preview -->
+            <img
+              *ngIf="previewUrl"
+              [src]="previewUrl"
+              class="mt-2 w-32 h-32 object-cover rounded shadow"
+            />
+          </div>
+          <app-toast
+            [message]="toastMessage"
+            [messageType]="toastType"
+            *ngIf="isToastVisible"
+          />
+          <!-- Submit Button -->
+          <div class="flex justify-center mt-4">
+            <button
+              mat-raised-button
+              type="submit"
+              [disabled]="isSubmitting"
+              [ngClass]="{
+                'bg-blue-200 text-gray-800': isSubmitting,
+                'bg-blue-700 hover:bg-blue-500 text-white': !isSubmitting
+              }"
+              class="font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out flex items-center gap-2"
+            >
+              <mat-spinner
+                *ngIf="isSubmitting"
+                diameter="20"
+                strokeWidth="3"
+                color="accent"
+              ></mat-spinner>
+              <span *ngIf="!isSubmitting">Submit</span>
+              <mat-icon *ngIf="!isSubmitting" class="text-white">send</mat-icon>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="See Data">
+    <app-toast
+      [message]="toastMessage"
+      [messageType]="toastType"
+      *ngIf="isToastVisible"
+    />
+
+  <div
+  *ngFor="let doc of projectDocuments"
+  class="flex flex-col bg-white border border-gray-200 shadow-xl rounded-2xl overflow-hidden w-full max-w-screen-md mx-auto mt-6 mb-6"
+>
+  <!-- Card Content -->
+  <div class="p-6 space-y-4">
+    
+    <!-- Project Name -->
+    <div>
+      <h2 class="text-lg font-semibold text-purple-700 uppercase">
+        Project Name
+      </h2>
+      <p class="text-xl text-gray-900 font-bold mt-1">
+        {{ doc["projectName"] }}
+      </p>
+    </div>
+
+    <!-- Short Description -->
+    <div>
+      <h2 class="text-lg font-semibold text-gray-700 uppercase">
+        Project Short Description
+      </h2>
+      <p class="text-base text-gray-800 mt-1">
+        {{ doc["projectShortDescription"] }}
+      </p>
+    </div>
+
+    <!-- Full Description -->
+    <div>
+      <h2 class="text-lg font-semibold text-gray-700 uppercase">
+        Project Full Description
+      </h2>
+      <p class="text-base text-gray-800 mt-1">
+        {{ doc["projectFullDescription"] }}
+      </p>
+    </div>
+
+    <!-- Image -->
+    <div *ngIf="doc['image']" class="w-full">
+      <img [src]="doc['image']" alt="Project Image" class="w-64 h-64 object-cover rounded-lg" />
+    </div>
+
+    <!-- Project Link -->
+    <div *ngIf="doc['projectLink']">
+      <h2 class="text-lg font-semibold text-gray-700 uppercase">
+        Project Link
+      </h2>
+      <a
+        [href]="doc['projectLink']"
+        target="_blank"
+        class="text-blue-600 underline hover:text-blue-800"
+      >
+        {{ doc["projectLink"] }}
+      </a>
+    </div>
+  </div>
+
+  <!-- Action Button -->
+  <div class="w-full flex justify-end px-6 py-4 bg-gray-50">
+    <button
+      (click)="deleteDocument(doc['id'])"
+      class="flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition"
+    >
+      <mat-icon class="text-white text-base">delete</mat-icon>
+      <span>Delete</span>
+    </button>
+  </div>
+</div>
+
+  </mat-tab>
+</mat-tab-group>

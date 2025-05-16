@@ -1,0 +1,17 @@
+/* ✅ ALL @import statements should come first */
+
+/* Google Fonts import must be the very first */
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Then Tailwind import */
+@import "tailwindcss";
+
+/* Then your global styles */
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Inter', "Helvetica Neue", sans-serif;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

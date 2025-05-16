@@ -1,0 +1,28 @@
+<!-- Section Heading -->
+<h2 class="text-3xl font-bold text-center text-gray-800 my-8">
+  Client Project Discussion
+</h2>
+
+<!-- Card Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-8 pb-10">
+  <mat-card
+    *ngFor="let item of feedback"
+    class="shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300"
+  >
+    <mat-card-header>
+      <mat-card-title class="text-lg font-semibold text-gray-800">
+        {{ item['name'] || 'No Name' }}
+      </mat-card-title>
+      <mat-card-subtitle class="text-sm text-gray-500">
+        {{ item['email'] || 'No Email' }}
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content class="text-sm text-gray-700 space-y-1 mt-2">
+      <p><strong>Location:</strong> {{ item['location'] || '-' }}</p>
+      <p><strong>Budget:</strong> {{ item['budget'] || '-' }}</p>
+      <p><strong>Subject:</strong> {{ item['subject'] || '-' }}</p>
+      <p><strong>Message:</strong> {{ item['message'] || '-' }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
