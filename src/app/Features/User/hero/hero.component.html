@@ -10,7 +10,7 @@
         <ng-container *ngFor="let doc1 of profile">
           <h1
             class="font-semibold text-3xl md:text-4xl leading-tight"
-            data-aos="fade-up-right"
+            
           >
             Hello, I'm <br />
             {{ doc1["name"] }}
@@ -20,13 +20,13 @@
         <ng-container *ngFor="let doc of heroDocuments">
           <p
             class="text-gray-700 text-base sm:text-lg text-justify"
-            data-aos="fade-up-left"
+           
           >
             {{ doc["introduction"] }}
           </p>
         </ng-container>
 
-        <div data-aos="fade-up-right">
+        <div >
           <button
           (click)="scrollToSection('contact')" 
             class="px-6 py-2 bg-[rgb(155,92,246)] text-white rounded shadow hover:bg-[#7c42d0] transition cursor-pointer"
@@ -39,7 +39,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
             <div
               class="bg-white/60 backdrop-blur-md p-5 text-center rounded-lg shadow"
-              data-aos="fade-up-left"
+             
             >
               <h2 class="text-2xl font-bold text-gray-900">
                 {{ doc["Experience"] }} Y.
@@ -48,7 +48,7 @@
             </div>
             <div
               class="bg-white/60 backdrop-blur-md p-5 text-center rounded-lg shadow"
-              data-aos="fade-up-right"
+              
             >
               <h2 class="text-2xl font-bold text-gray-900">
                 {{ doc["Project"] }}+
@@ -57,7 +57,7 @@
             </div>
             <div
               class="bg-white/60 backdrop-blur-md p-5 text-center rounded-lg shadow"
-              data-aos="fade-up-left"
+             
             >
               <h2 class="text-2xl font-bold text-gray-900">
                 {{ doc["Client"] }}
@@ -73,7 +73,7 @@
         <ng-container *ngFor="let doc of heroDocuments">
           <div
             class="w-full max-w-sm sm:max-w-sm md:max-w-md bg-white shadow rounded-2xl overflow-hidden"
-            data-aos="fade-up-left"
+           
           >
             <img
               [src]="doc['image']"

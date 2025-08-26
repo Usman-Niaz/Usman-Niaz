@@ -7,12 +7,12 @@
   >
     <!-- Left section: Contact Info -->
     <div class="w-full md:w-1/2 px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4" data-aos="fade-up-right">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4" >
         Let’s discuss your <span class="text-indigo-600">Project</span>
       </h2>
       <p
         class="text-gray-600 mb-8 text-sm md:text-base text-justify"
-        data-aos="fade-up-left"
+        
       >
         If you have an idea or project in mind, feel free to get in touch. I'm
         open to freelance opportunities and collaborations.
@@ -25,18 +25,18 @@
         <div
           class="bg-purple-600 p-2 rounded-md flex items-center justify-center w-10 h-10"
         >
-          <mat-icon class="!text-white text-base" data-aos="fade-up-right">
+          <mat-icon class="!text-white text-base" >
             location_on</mat-icon
           >
         </div>
         <div>
           <p
             class="font-semibold text-gray-600 text-sm"
-            data-aos="fade-up-left"
+            
           >
             Address:
           </p>
-          <p class="text-gray-800 text-sm break-words" data-aos="fade-up-right">
+          <p class="text-gray-800 text-sm break-words" >
             {{ userData?.address }}
           </p>
         </div>
@@ -49,18 +49,18 @@
         <div
           class="bg-purple-600 p-2 rounded-md flex items-center justify-center w-10 h-10"
         >
-          <mat-icon class="!text-white text-base" data-aos="fade-up-left"
+          <mat-icon class="!text-white text-base" 
             >mail</mat-icon
           >
         </div>
         <div class="w-full">
           <p
             class="font-semibold text-gray-600 text-sm"
-            data-aos="fade-up-right"
+            
           >
             My Email:
           </p>
-          <p class="text-gray-800 text-sm break-words" data-aos="fade-up-left">
+          <p class="text-gray-800 text-sm break-words" >
             {{ userData?.email }}
           </p>
         </div>
@@ -73,18 +73,18 @@
         <div
           class="bg-purple-600 p-2 rounded-md flex items-center justify-center w-10 h-10"
         >
-          <mat-icon class="!text-white text-base" data-aos="fade-up-right"
+          <mat-icon class="!text-white text-base" 
             >phone</mat-icon
           >
         </div>
         <div class="w-full">
           <p
             class="font-semibold text-gray-600 text-sm"
-            data-aos="fade-up-left"
+            
           >
             Call Me Now:
           </p>
-          <p class="text-gray-800 text-sm break-words" data-aos="fade-up-right">
+          <p class="text-gray-800 text-sm break-words" >
             +{{ userData?.phone }}
           </p>
         </div>
@@ -95,35 +95,35 @@
         <div class="flex flex-wrap justify-center sm:justify-start gap-4">
           <a
             href="{{ userData?.social?.linkedin }}"
-            data-aos="fade-up-left"
+            
             class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl hover:bg-purple-700 transition"
           >
             <i class="bi bi-linkedin"></i>
           </a>
           <a
             href="{{ userData?.social?.fiverr }}"
-            data-aos="fade-up-right"
+            
             class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl hover:bg-purple-700 transition"
           >
             <i class="bi bi-link"></i>
           </a>
           <a
             href="{{ userData?.social?.github }}"
-            data-aos="fade-up-left"
+            
             class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl hover:bg-purple-700 transition"
           >
             <i class="bi bi-github"></i>
           </a>
           <a
             href="{{ userData?.social?.instagram }}"
-            data-aos="fade-up-right"
+            
             class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl hover:bg-purple-700 transition"
           >
             <i class="bi bi-instagram"></i>
           </a>
           <a
             href="{{ userData?.social?.facebook }}"
-            data-aos="fade-up-left"
+            
             class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl hover:bg-purple-700 transition"
           >
             <i class="bi bi-facebook"></i>
@@ -134,7 +134,7 @@
 
     <!-- Right section: Contact Form -->
     <div class="w-full md:w-1/2">
-      <p class="text-gray-600 mb-8" data-aos="fade-up-right">
+      <p class="text-gray-600 mb-8" >
         Fill out the form and I’ll get back to you as soon as possible. Let’s
         create something amazing together!
       </p>
@@ -149,7 +149,7 @@
         <mat-form-field
           appearance="fill"
           class="w-full"
-          data-aos="fade-up-right"
+          
         >
           <mat-label class="text-sm text-gray-600">Name</mat-label>
           <input matInput formControlName="name" required />
@@ -167,7 +167,7 @@
         <mat-form-field
           appearance="fill"
           class="w-full"
-          data-aos="fade-up-left"
+          
         >
           <mat-label class="text-sm text-gray-600">Email</mat-label>
           <input matInput formControlName="email" />
@@ -183,7 +183,7 @@
         <mat-form-field
           appearance="fill"
           class="w-full"
-          data-aos="fade-up-right"
+          
         >
           <mat-label class="text-sm text-gray-600">Location</mat-label>
           <input matInput formControlName="location" />
@@ -199,7 +199,7 @@
         <mat-form-field
           appearance="fill"
           class="w-full md:w-[48%]"
-          data-aos="fade-up-left"
+          
         >
           <mat-label class="text-sm text-gray-600">Budget</mat-label>
           <input matInput formControlName="budget" />
@@ -215,7 +215,7 @@
         <mat-form-field
           appearance="fill"
           class="w-full md:w-[48%]"
-          data-aos="fade-up-right"
+          
         >
           <mat-label class="text-sm text-gray-600">Subject</mat-label>
           <input
@@ -235,7 +235,7 @@
         <mat-form-field
           appearance="fill"
           class="w-full"
-          data-aos="fade-up-left"
+          
         >
           <mat-label class="text-sm text-gray-600">Message</mat-label>
           <textarea matInput formControlName="message" rows="4"></textarea>
@@ -253,7 +253,7 @@
         >
         </app-toast>
         <!-- Submit Button -->
-        <div class="w-full mt-4" data-aos="fade-up-right">
+        <div class="w-full mt-4" >
           <button
             mat-flat-button
             color="primary"

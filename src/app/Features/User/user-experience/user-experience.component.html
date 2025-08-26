@@ -4,13 +4,13 @@
     <div class="mb-6">
       <h2
         class="text-2xl md:text-3xl font-bold text-center"
-        data-aos="fade-up-right"
+        
       >
         Experience
       </h2>
       <p
         class="text-center text-gray-600 max-w-2xl mx-auto"
-        data-aos="fade-up-left"
+        
       >
         A look at my professional journey, where I’ve applied and expanded my skills across different roles and environments.
       </p>
@@ -24,27 +24,27 @@
             [src]="item['image']"
             alt="Graphic Designing"
             class="w-full h-40 object-cover m-0 p-0"
-            data-aos="fade-up-right"
+            
           />
 
           <div class="p-2">
-            <h3 class="text-xl font-semibold text-center text-gray-800 m-0" data-aos="fade-up-left">
+            <h3 class="text-xl font-semibold text-center text-gray-800 m-0" >
               {{ item["title"] }}
             </h3>
-            <p class="text-gray-600 text-sm mt-1 text-justify m-0" data-aos="fade-up-right">
+            <p class="text-gray-600 text-sm mt-1 text-justify m-0" >
               {{ item["description"] }}
             </p>
 
             <div class="mt-2 flex justify-between gap-2 flex-wrap">
               <span
                 class="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-full"
-                data-aos="fade-up-right"
+                
               >
                 Start: {{ item["fromDate"]?.toDate() | date: 'MMM d, y' }}
               </span>
               <span
                 class="bg-red-100 text-red-800 text-xs font-medium px-2 py-1 rounded-full"
-                data-aos="fade-up-left"
+                
               >
                 End: {{ item["toDate"]?.toDate() | date: 'MMM d, y' }}
               </span>
